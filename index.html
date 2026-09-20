@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SEO: PRIMARY META
+       Replace "https://larabbyhotel.com" with your actual domain.
+  ════════════════════════════════════════════════════════════════ -->
+  <title>Larraby Hotel Epe | Comfortable Rooms &amp; Accommodation in Epe, Lagos</title>
+  <meta name="description" content="Stay at Larraby Hotel in Epe, Lagos. Comfortable Deluxe rooms from ₦25,000/night — with bar &amp; lounge, restaurant, snooker, free Wi-Fi, on-site parking and 24/7 power. Walk-ins welcome."/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://larabbyhotel.com/"/>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SEO: OPEN GRAPH — WhatsApp, Facebook, Twitter link previews
+       Replace the og:image URL with your actual domain.
+  ════════════════════════════════════════════════════════════════ -->
+  <meta property="og:type"        content="website"/>
+  <meta property="og:site_name"   content="Larraby Hotel"/>
+  <meta property="og:title"       content="Larraby Hotel Epe | Rooms &amp; Accommodation in Epe, Lagos"/>
+  <meta property="og:description" content="Comfortable rooms, bar &amp; lounge, restaurant, snooker and 24/7 power in Epe, Lagos. Deluxe rooms from ₦25,000/night. Walk-ins welcome."/>
+  <meta property="og:image"       content="https://larabbyhotel.com/images/hero-bg.webp"/>
+  <meta property="og:url"         content="https://larabbyhotel.com/"/>
+
+  <meta name="twitter:card"        content="summary_large_image"/>
+  <meta name="twitter:title"       content="Larraby Hotel Epe | Rooms &amp; Accommodation in Epe, Lagos"/>
+  <meta name="twitter:description" content="Comfortable rooms, bar &amp; lounge and 24/7 power. From ₦25,000/night in Epe, Lagos."/>
+  <meta name="twitter:image"       content="https://larabbyhotel.com/images/hero-bg.webp"/>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       FAVICON
+  ════════════════════════════════════════════════════════════════ -->
+  <link rel="icon" href="images/logo.webp" type="image/webp"/>
+  <link rel="apple-touch-icon" href="images/logo.webp"/>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       PERFORMANCE: preload hero image so it starts loading immediately
+       (improves Largest Contentful Paint score)
+  ════════════════════════════════════════════════════════════════ -->
+  <link rel="preload" as="image" href="images/hero-bg.webp"/>
+
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="larraby.css"/>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header" id="site-header">
+  <a href="#home" class="logo">
+    <!-- SEO: descriptive alt text on logo -->
+    <img src="images/logo.webp" alt="Larraby Hotel International logo" class="logo-img" width="34" height="34"/>
+    <span class="logo-name">Larraby</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#rooms">Rooms</a></li>
+    <li><a href="#amenities">Facilities</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#rooms" class="btn-book-nav">Book Now</a>
+  <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero__bg"></div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <!-- SEO: H1 now includes location keyword while preserving the tagline feel -->
+    <h1 class="hero__title">Good Times.<br>Great Hospitality<br>in Epe.</h1>
+    <!-- SEO: subtitle now includes hotel type, location, and key amenities naturally -->
+    <p class="hero__subtitle">A comfortable hotel in Odomola, Epe, Lagos — where you relax, connect, enjoy great food and entertainment, and experience warm hospitality worth remembering.</p>
+    <div class="hero__chevron">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+  </div>
+  <div class="booking-wrap">
+    <div class="booking-card">
+      <div class="booking-field">
+        <label>Check In</label>
+        <input type="date" id="w-checkin"/>
+      </div>
+      <div class="booking-field">
+        <label>Check Out</label>
+        <input type="date" id="w-checkout"/>
+      </div>
+      <div class="booking-field">
+        <label>Room Type</label>
+        <select id="w-roomtype">
+          <option value="" disabled selected>Room type</option>
+          <option value="Deluxe">Deluxe Room</option>
+          <option value="Super Deluxe">Super Deluxe Room</option>
+        </select>
+      </div>
+      <div class="booking-field">
+        <label>Guests</label>
+        <select id="w-guests">
+          <option value="" disabled selected>Guests</option>
+          <option>1 Guest</option>
+          <option>2 Guests</option>
+        </select>
+      </div>
+      <button class="btn-check" id="btn-check-avail">Check Availability</button>
+    </div>
+    <button class="availability-trigger" id="mobile-avail-trigger">Check Availability</button>
+  </div>
+</section>
+
+<!-- WELCOME -->
+<section class="welcome" id="welcome">
+  <div class="welcome__body">
+    <div class="welcome__right" data-reveal="left">
+      <!-- SEO: heading now includes "Epe" and "hotel" naturally -->
+      <h2 class="welcome__heading" data-reveal>Welcome to Larraby —<br>Your Home Away From Home in Epe.</h2>
+      <p class="welcome__text">Larraby Hotel is more than a place to stay. It is a destination where hospitality, relaxation, and connection come together. From spending time with friends and family to unwinding, having fun, or simply taking a break, we create a warm and welcoming environment where every guest can feel comfortable, enjoy their time, and leave with an experience worth remembering.</p>
+      <button class="btn-outline" id="about-us-toggle" aria-expanded="false">
+        About Us
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="welcome__more" id="about-us-panel">
+        <div class="welcome__more-inner">
+          <div class="welcome__more-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 22h8M7 10h10M12 15v7M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5z"/></svg> Bar &amp; Lounge Evenings</div>
+          <div class="welcome__more-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg> Snooker &amp; Games</div>
+          <div class="welcome__more-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg> Restaurant &amp; Dining</div>
+          <div class="welcome__more-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Walk-Ins Welcome</div>
+        </div>
+      </div>
+    </div>
+    <div class="welcome__media" role="group" aria-label="Larraby Hotel Epe interior photos">
+      <!-- SEO: descriptive alt text, lazy loading on non-hero images -->
+      <img class="welcome__img" src="images/welcome.webp" alt="Comfortable room interior at Larraby Hotel, Epe Lagos" loading="lazy"/>
+      <img class="welcome__img welcome__img--alt" src="images/welcome-1.webp" alt="Larraby Hotel lounge and relaxation area in Epe" loading="lazy"/>
+    </div>
+  </div>
+</section>
+
+<!-- ROOMS -->
+<section class="rooms" id="rooms">
+  <div class="rooms__header">
+    <div data-reveal>
+      <!-- SEO: heading now includes "hotel rooms in Epe" naturally -->
+      <h2>Rooms &amp; Accommodation in Epe</h2>
+      <p>From productive workdays to family time and relaxed evenings,<br>Larraby Hotel offers comfortable rooms and a welcoming atmosphere for every kind of stay in Epe, Lagos.</p>
+    </div>
+    <a href="#contact" class="btn-dark">Explore All Rooms</a>
+  </div>
+  <div class="rooms__track" id="rooms-track">
+
+    <!-- SUPER DELUXE CARD -->
+    <div class="room-card">
+      <!-- SEO: lazy loading, descriptive alt text including hotel name and location -->
+      <img src="images/room-1.webp" alt="Super Deluxe room at Larraby Hotel Epe — king bed, two couches, A/C and TV" loading="lazy" width="320" height="220"/>
+      <div class="room-card__body">
+        <!-- SEO: room names are now <h3> for proper heading hierarchy -->
+        <h3 class="room-card__name">Super Deluxe Larraby Room</h3>
+        <div class="room-card__price">&#8358;30,000 / night</div>
+        <div class="room-card__divider"></div>
+        <div class="room-card__amenities">
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg> 1 Bed</span>
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><line x1="10" x2="8" y1="5" y2="7"/><line x1="2" x2="22" y1="12" y2="12"/><line x1="7" x2="7" y1="19" y2="21"/><line x1="17" x2="17" y1="19" y2="21"/></svg> 1 Bath</span>
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/><path d="M2 11v5a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v2H6v-2a2 2 0 0 0-4 0Z"/><path d="M4 19v2"/><path d="M20 19v2"/></svg> 2 Couches</span>
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="13" rx="2"/><path d="m7 2 5 5 5-5"/></svg> TV</span>
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="14" rx="2"/><path d="M12 16v4"/><path d="M9 20h6"/></svg> Mirror</span>
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg> A/C</span>
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 9c-1.5-3.5-5-4-6.5-2s.5 5.5 3.5 5"/><path d="M12 15c1.5 3.5 5 4 6.5 2s-.5-5.5-3.5-5"/><path d="M9 12c-3.5 1.5-4 5-2 6.5s5.5-.5 5-3.5"/><path d="M15 12c3.5-1.5 4-5 2-6.5s-5.5.5-5 3.5"/></svg> Fan</span>
+        </div>
+        <button class="btn-book-room" data-room="Super Deluxe Larraby Room" data-rate="30000" data-maxguests="3">Book This Room</button>
+      </div>
+    </div>
+
+    <!-- DELUXE CARD 1 -->
+    <div class="room-card">
+      <img src="images/room-2.webp" alt="Deluxe room at Larraby Hotel Epe — comfortable bed, TV and A/C" loading="lazy" width="320" height="220"/>
+      <div class="room-card__body">
+        <h3 class="room-card__name">Deluxe Larraby Room</h3>
+        <div class="room-card__price">&#8358;25,000 / night</div>
+        <div class="room-card__divider"></div>
+        <div class="room-card__amenities">
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg> 1 Bed</span>
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><line x1="10" x2="8" y1="5" y2="7"/><line x1="2" x2="22" y1="12" y2="12"/><line x1="7" x2="7" y1="19" y2="21"/><line x1="17" x2="17" y1="19" y2="21"/></svg> 1 Bath</span>
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/><path d="M2 11v5a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v2H6v-2a2 2 0 0 0-4 0Z"/><path d="M4 19v2"/><path d="M20 19v2"/></svg> 1 Couch</span>
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="13" rx="2"/><path d="m7 2 5 5 5-5"/></svg> TV</span>
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="14" rx="2"/><path d="M12 16v4"/><path d="M9 20h6"/></svg> Mirror</span>
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg> A/C</span>
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 9c-1.5-3.5-5-4-6.5-2s.5 5.5 3.5 5"/><path d="M12 15c1.5 3.5 5 4 6.5 2s-.5-5.5-3.5-5"/><path d="M9 12c-3.5 1.5-4 5-2 6.5s5.5-.5 5-3.5"/><path d="M15 12c3.5-1.5 4-5 2-6.5s-5.5.5-5 3.5"/></svg> Fan</span>
+        </div>
+        <button class="btn-book-room" data-room="Deluxe Larraby Room" data-rate="25000" data-maxguests="2">Book This Room</button>
+      </div>
+    </div>
+
+    <!-- DELUXE CARD 2 -->
+    <div class="room-card">
+      <img src="images/room-3.webp" alt="Deluxe Larraby Hotel room interior with couch and TV in Epe" loading="lazy" width="320" height="220"/>
+      <div class="room-card__body">
+        <h3 class="room-card__name">Deluxe Larraby Room</h3>
+        <div class="room-card__price">&#8358;25,000 / night</div>
+        <div class="room-card__divider"></div>
+        <div class="room-card__amenities">
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg> 1 Bed</span>
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><line x1="10" x2="8" y1="5" y2="7"/><line x1="2" x2="22" y1="12" y2="12"/><line x1="7" x2="7" y1="19" y2="21"/><line x1="17" x2="17" y1="19" y2="21"/></svg> 1 Bath</span>
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/><path d="M2 11v5a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v2H6v-2a2 2 0 0 0-4 0Z"/><path d="M4 19v2"/><path d="M20 19v2"/></svg> 1 Couch</span>
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="13" rx="2"/><path d="m7 2 5 5 5-5"/></svg> TV</span>
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="14" rx="2"/><path d="M12 16v4"/><path d="M9 20h6"/></svg> Mirror</span>
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg> A/C</span>
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 9c-1.5-3.5-5-4-6.5-2s.5 5.5 3.5 5"/><path d="M12 15c1.5 3.5 5 4 6.5 2s-.5-5.5-3.5-5"/><path d="M9 12c-3.5 1.5-4 5-2 6.5s5.5-.5 5-3.5"/><path d="M15 12c3.5-1.5 4-5 2-6.5s-5.5.5-5 3.5"/></svg> Fan</span>
+        </div>
+        <button class="btn-book-room" data-room="Deluxe Larraby Room" data-rate="25000" data-maxguests="2">Book This Room</button>
+      </div>
+    </div>
+
+    <!-- DELUXE CARD 3 -->
+    <div class="room-card">
+      <img src="images/room-4.webp" alt="Larraby Hotel Deluxe room with bed and couch — affordable accommodation in Epe" loading="lazy" width="320" height="220"/>
+      <div class="room-card__body">
+        <h3 class="room-card__name">Deluxe Larraby Room</h3>
+        <div class="room-card__price">&#8358;25,000 / night</div>
+        <div class="room-card__divider"></div>
+        <div class="room-card__amenities">
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg> 1 Bed</span>
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><line x1="10" x2="8" y1="5" y2="7"/><line x1="2" x2="22" y1="12" y2="12"/><line x1="7" x2="7" y1="19" y2="21"/><line x1="17" x2="17" y1="19" y2="21"/></svg> 1 Bath</span>
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v3"/><path d="M2 11v5a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5a2 2 0 0 0-4 0v2H6v-2a2 2 0 0 0-4 0Z"/><path d="M4 19v2"/><path d="M20 19v2"/></svg> 1 Couch</span>
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="13" rx="2"/><path d="m7 2 5 5 5-5"/></svg> TV</span>
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="14" rx="2"/><path d="M12 16v4"/><path d="M9 20h6"/></svg> Mirror</span>
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg> A/C</span>
+          <span class="room-amenity"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 9c-1.5-3.5-5-4-6.5-2s.5 5.5 3.5 5"/><path d="M12 15c1.5 3.5 5 4 6.5 2s-.5-5.5-3.5-5"/><path d="M9 12c-3.5 1.5-4 5-2 6.5s5.5-.5 5-3.5"/><path d="M15 12c3.5-1.5 4-5 2-6.5s-5.5.5-5 3.5"/></svg> Fan</span>
+        </div>
+        <button class="btn-book-room" data-room="Deluxe Larraby Room" data-rate="25000" data-maxguests="2">Book This Room</button>
+      </div>
+    </div>
+
+    <!-- DELUXE CARD 4 -->
+    <div class="room-card">
+      <img src="images/room-5.webp" alt="Clean and comfortable Deluxe room at Larraby Hotel Epe" loading="lazy" width="320" height="220"/>
+      <div class="room-card__body">
+        <h3 class="room-card__name">Deluxe Larraby Room</h3>
+        <div class="room-card__price">&#8358;25,000 / night</div>
+        <div class="room-card__divider"></div>
+        <div class="room-card__amenities">
+          <span class="room-amenity">1 Bed</span>
+          <span class="room-amenity">1 Bath</span>
+          <span class="room-amenity">TV</span>
+          <span class="room-amenity">A/C</span>
+        </div>
+        <button class="btn-book-room" data-room="Deluxe Larraby Room" data-rate="25000" data-maxguests="2">Book This Room</button>
+      </div>
+    </div>
+
+    <!-- DELUXE SUITE CARD -->
+    <div class="room-card">
+      <img src="images/room-6.webp" alt="Larraby Hotel Deluxe Suite — two beds, two bathrooms, ideal for families in Epe" loading="lazy" width="320" height="220"/>
+      <div class="room-card__body">
+        <h3 class="room-card__name">Deluxe Larraby Suite</h3>
+        <div class="room-card__price">&#8358;40,000 / night</div>
+        <div class="room-card__divider"></div>
+        <div class="room-card__amenities">
+          <span class="room-amenity">2 Beds</span>
+          <span class="room-amenity">2 Baths</span>
+          <span class="room-amenity">TV</span>
+          <span class="room-amenity">A/C</span>
+        </div>
+        <button class="btn-book-room" data-room="Family Larraby Suite" data-rate="40000" data-maxguests="4">Book This Room</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<section class="why" id="about">
+  <div class="why__left">
+    <h2 class="why__title" data-reveal>Why Choose Larraby Hotel in Epe?</h2>
+    <p class="why__subtitle" data-reveal data-delay="1">Whether you're visiting for business, spending time with family, or simply taking a break in Epe, Lagos, Larraby offers the space, hospitality, and atmosphere to make your stay worthwhile.</p>
+    <div class="features">
+      <div class="feature" data-reveal data-delay="2">
+        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>
+        <div class="feature__title">Warm Hospitality</div>
+        <div class="feature__desc">A welcoming atmosphere that makes you feel looked after from the moment you arrive.</div>
+      </div>
+      <div class="feature" data-reveal data-delay="3">
+        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></div>
+        <div class="feature__title">Relax &amp; Unwind</div>
+        <div class="feature__desc">Take a break from your routine and enjoy a serene environment.</div>
+      </div>
+      <div class="feature" data-reveal data-delay="4">
+        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+        <div class="feature__title">Work &amp; Productivity</div>
+        <div class="feature__desc">A comfortable setting for those who need to get work done, hold conversations, or stay productive while away from home.</div>
+      </div>
+      <div class="feature" data-reveal data-delay="5">
+        <div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div class="feature__title">A Place to Gather</div>
+        <div class="feature__desc">Bring your friends, family or community together for moments worth sharing.</div>
+      </div>
+    </div>
+  </div>
+  <div class="why__gallery" data-reveal="right">
+    <!-- SEO: descriptive alt texts on gallery images -->
+    <img src="images/gallery-1.webp" alt="Larraby Hotel lounge area in Epe, Lagos" loading="lazy"/>
+    <img src="images/gallery-2.webp" alt="Comfortable room interior at Larraby Hotel" loading="lazy"/>
+    <img src="images/gallery-3.webp" alt="Larraby Hotel reception desk in Epe, Lagos" loading="lazy"/>
+  </div>
+</section>
+
+<!-- AMENITIES -->
+<section class="amenities" id="amenities">
+  <div class="section-accent"></div>
+  <h2 data-reveal>Everything You Need for a Memorable Stay in Epe</h2>
+  <p class="sub" data-reveal data-delay="1">From productive workdays to family time and relaxed evenings, Larraby Hotel offers comfortable spaces and a welcoming atmosphere for every kind of stay.</p>
+  <div class="amenities__grid">
+
+    <!-- SEO: Fixed duplicate "Bar & Lounge" — this one correctly named "Restaurant & Dining" to match its description about food/meals -->
+    <div class="amenity-card" data-reveal data-delay="1">
+      <div class="amenity-card__meta">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 22h8M7 10h10M12 15v7M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5z"/></svg>
+        <div>
+          <div class="amenity-card__title">Restaurant &amp; Dining</div>
+          <div class="amenity-card__desc">Enjoy scrumptious African meals made fresh on request. Tell us what you're craving — chef-prepared, just for you.</div>
+        </div>
+      </div>
+      <div class="amenity-illustration" style="background-image:url('images/svg-1.webp')"></div>
+    </div>
+
+    <div class="amenity-card" data-reveal data-delay="2">
+      <div class="amenity-card__meta">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+        <div>
+          <div class="amenity-card__title">Snooker &amp; Games</div>
+          <div class="amenity-card__desc">Enjoy your afternoon with friends over a game of pool in a well-ventilated space.</div>
+        </div>
+      </div>
+      <div class="amenity-illustration" style="background-image:url('images/svg-2.webp')"></div>
+    </div>
+
+    <div class="amenity-card" data-reveal data-delay="3">
+      <div class="amenity-card__meta">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <div>
+          <div class="amenity-card__title">On-Site Parking</div>
+          <div class="amenity-card__desc">Enjoy hassle-free travel with secure complimentary parking available for all guests.</div>
+        </div>
+      </div>
+      <div class="amenity-illustration" style="background-image:url('images/svg-3.webp')"></div>
+    </div>
+
+    <div class="amenity-card" data-reveal data-delay="4">
+      <div class="amenity-card__meta">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+        <div>
+          <div class="amenity-card__title">24/7 Power Supply</div>
+          <div class="amenity-card__desc">Constant power supply so you can work, rest, and recharge without interruption.</div>
+        </div>
+      </div>
+      <div class="amenity-illustration" style="background-image:url('images/svg-4.webp')"></div>
+    </div>
+
+    <div class="amenity-card" data-reveal data-delay="5">
+      <div class="amenity-card__meta">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1" fill="currentColor"/></svg>
+        <div>
+          <div class="amenity-card__title">Free Wi-Fi</div>
+          <div class="amenity-card__desc">Enjoy free and fast Wi-Fi in all rooms and common areas throughout the hotel.</div>
+        </div>
+      </div>
+      <div class="amenity-illustration" style="background-image:url('images/svg-5.webp')"></div>
+    </div>
+
+    <!-- SEO: Correctly named "Bar & Lounge" (this card's description is about drinks/socialising) -->
+    <div class="amenity-card" data-reveal data-delay="6">
+      <div class="amenity-card__meta">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg>
+        <div>
+          <div class="amenity-card__title">Bar &amp; Lounge</div>
+          <div class="amenity-card__desc">A spacious lounge to relax, socialise, and enjoy drinks in a comfortable atmosphere.</div>
+        </div>
+      </div>
+      <div class="amenity-illustration" style="background-image:url('images/svg-6.webp')"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GLIMPSE -->
+<section class="glimpse" id="glimpse">
+  <div class="section-accent"></div>
+  <h2 data-reveal>A Glimpse of Larraby Hotel</h2>
+  <p class="sub" data-reveal data-delay="1">Explore the spaces, moments and atmosphere that make Larraby Hotel in Epe unique.</p>
+  <div class="glimpse__grid">
+    <div class="glimpse__item" data-reveal data-delay="1">
+      <!-- SEO: lazy loading + descriptive alt text -->
+      <img src="images/glimpse-1.webp" alt="Larraby Hotel International building exterior in Epe, Lagos" loading="lazy"/>
+      <span class="img-label">Hotel Exterior</span>
+    </div>
+    <div class="glimpse__item" data-reveal data-delay="3">
+      <img src="images/glimpse-2.webp" alt="Larraby Hotel reception and lobby area in Epe" loading="lazy"/>
+      <span class="img-label">Reception</span>
+    </div>
+    <div class="glimpse__item" data-reveal data-delay="2">
+      <img src="images/glimpse-3.webp" alt="Relaxation and lounge area at Larraby Hotel Epe" loading="lazy"/>
+      <span class="img-label">Relaxation</span>
+    </div>
+    <div class="glimpse__item" data-reveal data-delay="4">
+      <img src="images/glimpse-4.webp" alt="Larraby Hotel corridor and hallway in Epe, Lagos" loading="lazy"/>
+      <span class="img-label">Hallway</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT BANNER -->
+<section class="contact-banner">
+  <div class="contact-banner__bg"></div>
+  <div class="contact-banner__overlay"></div>
+  <div class="contact-banner__content">
+    <h2>Find Your Way to<br>Larraby Hotel</h2>
+    <p>Located in Odomola, Epe, Lagos, Larraby is just off the Ijebu-Ode Express Road, making it easy to find when you're ready to stay, relax and enjoy yourself.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact__left" data-reveal="left">
+    <h2>Contact Us</h2>
+    <p>Your comfort and convenience is our priority. Whether you have questions or need support with a reservation.</p>
+    <div class="contact-info">
+      <div class="contact-info-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12 19.79 19.79 0 0 1 1.93 3.38 2 2 0 0 1 3.89 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <!-- SEO: phone as a real <a href="tel:"> link (previously a plain text link) -->
+        <a href="tel:+2349030484636">09030484636</a>
+      </div>
+      <div class="contact-info-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        <a href="mailto:larabbyhotel@gmail.com">larabbyhotel@gmail.com</a>
+      </div>
+      <div class="contact-info-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        <a href="mailto:shuttaoladap@gmail.com">shuttaoladap@gmail.com</a>
+      </div>
+      <div class="contact-info-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+        <a href="https://wa.me/2348149169698" target="_blank" rel="noopener">08149169698 (WhatsApp)</a>
+      </div>
+      <div class="contact-info-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Walk-Ins Accepted</span>
+      </div>
+    </div>
+    <div class="contact-mini-grid">
+      <div class="contact-mini">
+        <h4>Customer Support</h4>
+        <p>Our support team is available around the clock to address any concerns or queries you might have.</p>
+      </div>
+      <div class="contact-mini">
+        <h4>Feedback &amp; Suggestions</h4>
+        <p>We value your feedback and are continuously working to improve. Your feedback is very essential to our growth.</p>
+      </div>
+    </div>
+  </div>
+  <div class="contact__right" data-reveal="right">
+    <div class="form-card">
+      <h3>Get in Touch</h3>
+      <div class="form-row">
+        <div class="form-group"><label>First Name <span>*</span></label><input type="text" id="cf-fname" required/></div>
+        <div class="form-group"><label>Last Name <span>*</span></label><input type="text" id="cf-lname" required/></div>
+      </div>
+      <div class="form-group"><label>Message <span>*</span></label><textarea rows="3" id="cf-message" required></textarea></div>
+      <div class="form-group"><label>Phone Number <span>*</span></label><input type="tel" id="cf-phone" required/></div>
+      <div class="form-group"><label>Email Address <span>*</span></label><input type="email" id="cf-email" required/></div>
+      <button class="btn-submit" id="btn-contact-submit">Send Message</button>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location" id="location">
+  <div class="location__label" data-reveal="fade">Find Us</div>
+  <h2 data-reveal>Our Location in Epe, Lagos</h2>
+  <!-- SEO: address wrapped in semantic <address> element -->
+  <address class="location__address" data-reveal data-delay="1">
+    No 5, Alhaji Sherifat Street, Opposite AP Filling Station,<br>
+    Poka, Epe, Lagos, Nigeria
+  </address>
+  <div class="location__body">
+    <div class="location__map" data-reveal="left">
+      <!-- SEO: iframe has title attribute for accessibility and crawlability -->
+      <iframe
+        src="https://maps.google.com/maps?q=Larraby+Hotel+International,+Poka,+Epe,+Lagos,+Nigeria&output=embed&z=16"
+        title="Larraby Hotel location on Google Maps — Poka, Epe, Lagos, Nigeria"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+    </div>
+    <div class="location__photo" data-reveal="right">
+      <img src="images/location.webp" alt="Larraby Hotel International building exterior in Poka, Epe, Lagos" loading="lazy"/>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer__wordmark">Larraby Hotel</div>
+  <div class="footer__body">
+    <div class="footer-col">
+      <a href="#rooms">Rooms &amp; Suites</a>
+      <a href="#about">Experience</a>
+      <a href="#amenities">Facilities</a>
+      <a href="#glimpse">Gallery</a>
+      <a href="#contact">Location</a>
+      <a href="#rooms">Book a Room</a>
+    </div>
+    <div class="footer-col">
+      <!-- SEO: phone and email are now proper <a> links instead of <span> -->
+      <a href="tel:+2348149169698">+2348149169698</a>
+      <a href="mailto:larabbyhotel@gmail.com">larabbyhotel@gmail.com</a>
+      <a href="#rooms">Rooms</a>
+      <a href="#about">Experience</a>
+      <a href="#amenities">Facilities</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <a href="https://wa.me/2348149169698" target="_blank" rel="noopener" class="footer__wa">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <a href="#" class="social-link" aria-label="Larraby Hotel on Instagram">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+    </a>
+    <a href="#" class="social-link" aria-label="Larraby Hotel on TikTok">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.27 8.27 0 0 0 4.83 1.54V6.78a4.85 4.85 0 0 1-1.06-.09z"/></svg>
+    </a>
+    <span class="footer__copy">&copy; 2026 Larraby Hotel International. All rights reserved.</span>
+  </div>
+</footer>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+  <a href="#home"      class="mobile-nav-link">Home</a>
+  <a href="#rooms"     class="mobile-nav-link">Rooms</a>
+  <a href="#amenities" class="mobile-nav-link">Facilities</a>
+  <a href="#about"     class="mobile-nav-link">About</a>
+  <a href="#contact"   class="mobile-nav-link">Contact</a>
+  <a href="#rooms"     class="mobile-nav-link btn-book-mobile">Book Now</a>
+</nav>
+
+<!-- AVAILABILITY MODAL (mobile) -->
+<div class="modal-overlay" id="availability-modal">
+  <div class="modal-card">
+    <button class="modal-close" id="avail-modal-close">&times;</button>
+    <div class="modal-room-type">Check Availability</div>
+    <div class="modal-rate" style="color:var(--muted);font-weight:400;">Tell us your dates and we'll confirm on WhatsApp</div>
+    <div class="modal-field">
+      <label>Check In</label>
+      <input type="date" id="am-checkin"/>
+    </div>
+    <div class="modal-field">
+      <label>Check Out</label>
+      <input type="date" id="am-checkout"/>
+    </div>
+    <div class="modal-field">
+      <label>Room Type</label>
+      <select id="am-roomtype">
+        <option value="" disabled selected>Room type</option>
+        <option value="Deluxe">Deluxe Room</option>
+        <option value="Super Deluxe">Super Deluxe Room</option>
+      </select>
+    </div>
+    <div class="modal-field">
+      <label>Guests</label>
+      <select id="am-guests">
+        <option value="" disabled selected>Guests</option>
+        <option>1 Guest</option>
+        <option>2 Guests</option>
+      </select>
+    </div>
+    <button class="btn-whatsapp" id="am-check-avail" style="margin-top:6px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+      Check on WhatsApp
+    </button>
+  </div>
+</div>
+
+<!-- BOOKING MODAL -->
+<div class="modal-overlay" id="booking-modal">
+  <div class="modal-card">
+    <button class="modal-close" id="modal-close">&times;</button>
+    <div class="modal-room-type" id="modal-room-name">Deluxe Larraby Room</div>
+    <div class="modal-rate" id="modal-room-rate">&#8358;25,000 per night</div>
+    <div class="modal-field">
+      <label>Check In</label>
+      <input type="date" id="modal-checkin"/>
+    </div>
+    <div class="modal-field">
+      <label>Check Out</label>
+      <input type="date" id="modal-checkout"/>
+    </div>
+    <div class="modal-field">
+      <label>Number of Guests</label>
+      <select id="modal-guests">
+        <option>1 Guest</option>
+        <option>2 Guests</option>
+      </select>
+    </div>
+    <div class="modal-price-box">
+      <div>
+        <div class="label" id="modal-nights-label">Select dates to see total</div>
+        <div class="label" style="font-size:11px;margin-top:2px;color:#999">Prices are per 24 hours</div>
+      </div>
+      <div class="total" id="modal-total">&mdash;</div>
+    </div>
+    <a href="#" class="btn-whatsapp" id="modal-wa-btn" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+      Confirm on WhatsApp
+    </a>
+    <p class="modal-note">You'll be taken to WhatsApp to confirm your booking with the manager. No payment is taken online.</p>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lightbox__close" id="lb-close" aria-label="Close">&times;</button>
+  <button class="lightbox__btn lightbox__prev" id="lb-prev" aria-label="Previous">&#8249;</button>
+  <img class="lightbox__img" id="lb-img" src="" alt=""/>
+  <button class="lightbox__btn lightbox__next" id="lb-next" aria-label="Next">&#8250;</button>
+  <span class="lightbox__counter" id="lb-counter"></span>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SEO: SCHEMA.ORG STRUCTURED DATA
+     Tells Google this is a real hotel in Epe, Lagos — not just a webpage.
+     This enables rich results in Google Maps and local search.
+     Replace "https://larabbyhotel.com" with your actual live domain.
+═══════════════════════════════════════════════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Hotel",
+  "name": "Larraby Hotel International",
+  "alternateName": "Larraby Hotel",
+  "description": "A comfortable hotel in Epe, Lagos offering Deluxe and Super Deluxe rooms, a restaurant, bar and lounge, snooker, free Wi-Fi, on-site parking and 24/7 power supply. Walk-ins welcome.",
+  "url": "https://larabbyhotel.com",
+  "telephone": "+2348149169698",
+  "email": "larabbyhotel@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "No 5, Alhaji Sherifat Street, Opposite AP Filling Station, Poka",
+    "addressLocality": "Epe",
+    "addressRegion": "Lagos",
+    "addressCountry": "NG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 6.5864,
+    "longitude": 3.9791
+  },
+  "priceRange": "₦₦",
+  "currenciesAccepted": "NGN",
+  "paymentAccepted": "Cash",
+  "openingHours": "Mo-Su 00:00-23:59",
+  "amenityFeature": [
+    {"@type": "LocationFeatureSpecification", "name": "Restaurant & Dining", "value": true},
+    {"@type": "LocationFeatureSpecification", "name": "Bar & Lounge",         "value": true},
+    {"@type": "LocationFeatureSpecification", "name": "Snooker Table",        "value": true},
+    {"@type": "LocationFeatureSpecification", "name": "Free Wi-Fi",           "value": true},
+    {"@type": "LocationFeatureSpecification", "name": "Free Parking",         "value": true},
+    {"@type": "LocationFeatureSpecification", "name": "24/7 Power Supply",    "value": true},
+    {"@type": "LocationFeatureSpecification", "name": "Air Conditioning",     "value": true}
+  ],
+  "hasMap": "https://maps.google.com/maps?q=Larraby+Hotel+International,+Poka,+Epe,+Lagos,+Nigeria",
+  "image": [
+    "https://larabbyhotel.com/images/hero-bg.webp",
+    "https://larabbyhotel.com/images/glimpse-1.webp",
+    "https://larabbyhotel.com/images/welcome.webp"
+  ]
+}
+</script>
+
+<script>
+  const WA_NUMBER = '2348149169698';
+
+  // ── Nav scroll tint
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // ── Room type → guest sync (booking widget)
+  const wRoomType = document.getElementById('w-roomtype');
+  const wGuests   = document.getElementById('w-guests');
+  wRoomType.addEventListener('change', function() {
+    const isSuper = this.value === 'Super Deluxe';
+    wGuests.innerHTML = isSuper
+      ? '<option value="" disabled selected>Guests</option><option>1 Guest</option><option>2 Guests</option><option>3 Guests</option>'
+      : '<option value="" disabled selected>Guests</option><option>1 Guest</option><option>2 Guests</option>';
+  });
+
+  // ── Check Availability → WhatsApp (shared helper)
+  function fireAvailabilityCheck(checkin, checkout, roomtype, guests) {
+    const fmt = d => d ? new Date(d).toDateString() : 'Not selected';
+    const msg = `Hello! I'd like to check availability at Larraby Hotel.\n\nRoom Type: ${roomtype || 'Not selected'}\nCheck In: ${fmt(checkin)}\nCheck Out: ${fmt(checkout)}\nGuests: ${guests || 'Not selected'}\n\nThank you!`;
+    window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
+  }
+
+  document.getElementById('btn-check-avail').addEventListener('click', function() {
+    fireAvailabilityCheck(
+      document.getElementById('w-checkin').value,
+      document.getElementById('w-checkout').value,
+      wRoomType.value,
+      wGuests.value
+    );
+  });
+
+  // ── Mobile "Check Availability" trigger → opens availability modal
+  const availModal = document.getElementById('availability-modal');
+  const amRoomType  = document.getElementById('am-roomtype');
+  const amGuests    = document.getElementById('am-guests');
+
+  document.getElementById('mobile-avail-trigger').addEventListener('click', () => {
+    availModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+  document.getElementById('avail-modal-close').addEventListener('click', closeAvailModal);
+  availModal.addEventListener('click', e => { if (e.target === availModal) closeAvailModal(); });
+  function closeAvailModal() {
+    availModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  amRoomType.addEventListener('change', function() {
+    const isSuper = this.value === 'Super Deluxe';
+    amGuests.innerHTML = isSuper
+      ? '<option value="" disabled selected>Guests</option><option>1 Guest</option><option>2 Guests</option><option>3 Guests</option>'
+      : '<option value="" disabled selected>Guests</option><option>1 Guest</option><option>2 Guests</option>';
+  });
+  document.getElementById('am-check-avail').addEventListener('click', function() {
+    fireAvailabilityCheck(
+      document.getElementById('am-checkin').value,
+      document.getElementById('am-checkout').value,
+      amRoomType.value,
+      amGuests.value
+    );
+  });
+
+  // ── About Us expandable panel
+  const aboutToggle = document.getElementById('about-us-toggle');
+  const aboutPanel  = document.getElementById('about-us-panel');
+  aboutToggle.addEventListener('click', () => {
+    const isOpen = aboutPanel.classList.toggle('open');
+    aboutToggle.classList.toggle('expanded', isOpen);
+    aboutToggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  // ── Carousel auto-slide
+  const track = document.getElementById('rooms-track');
+  let carouselPaused = false;
+  track.addEventListener('mouseenter', () => carouselPaused = true);
+  track.addEventListener('mouseleave', () => carouselPaused = false);
+  track.addEventListener('touchstart',  () => carouselPaused = true, { passive: true });
+  setInterval(() => {
+    if (carouselPaused) return;
+    const max = track.scrollWidth - track.clientWidth;
+    if (track.scrollLeft >= max - 10) {
+      track.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+      track.scrollBy({ left: 340, behavior: 'smooth' });
+    }
+  }, 3500);
+
+  // ── Booking modal
+  const modal      = document.getElementById('booking-modal');
+  const modalName  = document.getElementById('modal-room-name');
+  const modalRate  = document.getElementById('modal-room-rate');
+  const modalGuest = document.getElementById('modal-guests');
+  const modalCI    = document.getElementById('modal-checkin');
+  const modalCO    = document.getElementById('modal-checkout');
+  const modalLabel = document.getElementById('modal-nights-label');
+  const modalTotal = document.getElementById('modal-total');
+  const modalWA    = document.getElementById('modal-wa-btn');
+  let currentRate  = 25000;
+  let currentRoom  = 'Deluxe Larraby Room';
+
+  function formatNaira(n) {
+    return '\u20A6' + n.toLocaleString('en-NG');
+  }
+
+  function updatePrice() {
+    const ci = new Date(modalCI.value);
+    const co = new Date(modalCO.value);
+    if (modalCI.value && modalCO.value && co > ci) {
+      const nights = Math.round((co - ci) / 86400000);
+      const total  = nights * currentRate;
+      modalLabel.textContent = formatNaira(currentRate) + ' x ' + nights + ' night' + (nights > 1 ? 's' : '');
+      modalTotal.textContent = formatNaira(total);
+      const guests = modalGuest.value;
+      const msg = 'Hello! I would like to book a room at Larraby Hotel.\n\nRoom: ' + currentRoom + '\nCheck In: ' + ci.toDateString() + '\nCheck Out: ' + co.toDateString() + '\nDuration: ' + nights + ' night' + (nights > 1 ? 's' : '') + '\nGuests: ' + guests + '\nEstimated Total: ' + formatNaira(total) + '\n\nPlease confirm availability. Thank you!';
+      modalWA.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
+    } else {
+      modalLabel.textContent = 'Select dates to see total';
+      modalTotal.textContent = '\u2014';
+      modalWA.href = 'https://wa.me/' + WA_NUMBER;
+    }
+  }
+
+  document.querySelectorAll('.btn-book-room').forEach(btn => {
+    btn.addEventListener('click', function() {
+      currentRoom = this.dataset.room;
+      currentRate = parseInt(this.dataset.rate);
+      const maxGuests = parseInt(this.dataset.maxguests);
+      modalName.textContent = currentRoom;
+      modalRate.textContent = formatNaira(currentRate) + ' per night';
+      let guestOpts = '';
+      for (let i = 1; i <= maxGuests; i++) {
+        guestOpts += '<option>' + i + ' Guest' + (i > 1 ? 's' : '') + '</option>';
+      }
+      modalGuest.innerHTML = guestOpts;
+      modalCI.value = '';
+      modalCO.value = '';
+      modalLabel.textContent = 'Select dates to see total';
+      modalTotal.textContent = '\u2014';
+      modalWA.href = 'https://wa.me/' + WA_NUMBER;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  document.getElementById('modal-close').addEventListener('click', closeModal);
+  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  modalCI.addEventListener('change', updatePrice);
+  modalCO.addEventListener('change', updatePrice);
+  modalGuest.addEventListener('change', updatePrice);
+
+  // ── Contact form → WhatsApp
+  document.getElementById('btn-contact-submit').addEventListener('click', function() {
+    const fname   = document.getElementById('cf-fname').value.trim();
+    const lname   = document.getElementById('cf-lname').value.trim();
+    const message = document.getElementById('cf-message').value.trim();
+    const phone   = document.getElementById('cf-phone').value.trim();
+    const email   = document.getElementById('cf-email').value.trim();
+    if (!fname || !message) {
+      alert('Please fill in at least your name and message.');
+      return;
+    }
+    const msg = `Hello! I'm reaching out from the Larraby Hotel website.\n\nName: ${fname} ${lname}\nPhone: ${phone || 'Not provided'}\nEmail: ${email || 'Not provided'}\n\nMessage:\n${message}`;
+    window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
+  });
+
+  // ── Hamburger / mobile nav
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
+  hamburger.addEventListener('click', () => {
+    const isOpen = hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('active', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+  });
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('active');
+      document.body.style.overflow = '';
+      hamburger.setAttribute('aria-label', 'Open menu');
+    });
+  });
+
+  // ── Scroll reveal
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+
+  // ── Gallery lightbox
+  const lightbox    = document.getElementById('lightbox');
+  const lbImg       = document.getElementById('lb-img');
+  const lbCounter   = document.getElementById('lb-counter');
+  const galleryImgs = [...document.querySelectorAll('.glimpse__item img')];
+  let lbIndex = 0;
+
+  function openLb(i) {
+    lbIndex = i;
+    lbImg.src = galleryImgs[i].src;
+    lbImg.alt = galleryImgs[i].alt;
+    lbCounter.textContent = (i + 1) + ' / ' + galleryImgs.length;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLb() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function prevLb() { openLb((lbIndex - 1 + galleryImgs.length) % galleryImgs.length); }
+  function nextLb() { openLb((lbIndex + 1) % galleryImgs.length); }
+
+  galleryImgs.forEach((img, i) => {
+    img.closest('.glimpse__item').addEventListener('click', () => openLb(i));
+  });
+  document.getElementById('lb-close').addEventListener('click', closeLb);
+  document.getElementById('lb-prev').addEventListener('click', prevLb);
+  document.getElementById('lb-next').addEventListener('click', nextLb);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLb(); });
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape')     closeLb();
+    if (e.key === 'ArrowLeft')  prevLb();
+    if (e.key === 'ArrowRight') nextLb();
+  });
+</script>
+</body>
+</html>
