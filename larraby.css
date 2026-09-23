@@ -134,14 +134,14 @@
     .amenity-card__meta{display:flex;flex-direction:column;align-items:stretch;gap:10px}
     .amenity-card__meta svg{flex-shrink:0;color:var(--dark);width:26px;height:26px;margin:0 0 8px 0;align-self:flex-start}
     .amenity-card__title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:8px;color:var(--dark);display:block;margin-right:116px}
-    .amenity-card__desc{font-size:15px;line-height:1.8;color:rgba(17,17,17,.78);margin-top:6px}
+    .amenity-card__desc{font-size:16px;line-height:1.75;color:var(--body);margin-top:6px}
     @media(max-width:1024px){
       .amenity-card{padding:20px;padding-right:20px;border-radius:18px}
       .amenity-card__meta svg{width:22px;height:22px;margin:0 0 6px 0;align-self:flex-start}
       .amenity-card__title{font-size:18px;margin-right:92px}
     }
     .amenity-illustration{position:absolute;top:18px;right:18px;width:92px;height:92px;background-repeat:no-repeat;background-position:center;background-size:contain;border-radius:10px;opacity:1}
-    @media(max-width:1024px){.amenity-illustration{width:68px;height:68px;top:12px;right:12px}.amenity-card{padding-right:92px}}
+    @media(max-width:1024px){.amenity-illustration{width:68px;height:68px;top:12px;right:12px}}
 
     /* GLIMPSE */
     .glimpse{background:var(--bg-light);padding:92px 64px;text-align:center;}
