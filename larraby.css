@@ -61,19 +61,13 @@
     .welcome{background:var(--bg-light);padding:100px 64px 92px;}
     .welcome__heading{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,48px);font-weight:700;line-height:1.18;margin-bottom:24px}
     .welcome__body{display:grid;grid-template-columns:5fr 6fr;gap:72px;align-items:start;}
-    .welcome__media{display:flex;gap:16px;align-items:flex-start;flex-direction:row;flex-wrap:nowrap}
-    .welcome__img{flex:0 0 50%;max-width:50%;height:520px;max-height:520px;border-radius:20px;display:block;object-fit:cover;object-position:center center;background-color:var(--bg-light);transition:transform .35s ease}
-    .welcome__img--alt{border-radius:20px}
-    @media(min-width:1100px){
-      .welcome__img{object-fit:contain;height:520px;max-height:520px;object-position:center 30%}
-    }
+    .welcome__media{display:flex;align-items:flex-end;justify-content:center;gap:clamp(12px,3vw,36px);background:var(--gold-light);border:1px solid rgba(184,145,47,.18);border-radius:28px;padding:44px clamp(20px,4vw,48px) 0;overflow:hidden;}
+    /* flex-grow matches each drawing's aspect ratio so both bears render at the same height */
+    .welcome__img{display:block;min-width:0;height:auto;flex:754 1 0;}
+    .welcome__img--alt{flex:697 1 0;}
     .welcome__right{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:20px}
-    @media(max-width:1024px){
-      .welcome__media{flex-direction:row;overflow-x:auto}
-      .welcome__img{object-fit:contain;height:320px;max-height:320px;border-radius:20px;object-position:center;background-color:var(--bg-light);flex:0 0 50%;min-width:50%}
-    }
     @media(max-width:600px){
-      .welcome__img{height:240px;max-height:240px}
+      .welcome__media{border-radius:22px;padding-top:28px;}
     }
     
     .welcome__text{font-size:15px;line-height:1.9;color:var(--body);margin-bottom:32px;max-width:56ch;}
@@ -337,7 +331,7 @@
       .welcome{padding:64px 20px 52px;}
       .welcome__heading{font-size:clamp(24px,7vw,36px);margin-bottom:24px;}
       .welcome__body{grid-template-columns:1fr;gap:0;}
-      .welcome__img{height:240px;border-radius:12px;}
+      .welcome__media{margin-top:36px;}
       .welcome__right{padding-top:24px;}
       .welcome__text{margin-top:0;font-size:14px;}
 
