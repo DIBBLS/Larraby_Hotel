@@ -5,6 +5,7 @@
       --gold:#B8912F;--gold-light:#F3E8CE;
     }
     html{scroll-behavior:smooth;}
+    html{overflow-x:clip;}
     body{font-family:'Inter',sans-serif;color:var(--dark);overflow-x:hidden;}
 
     /* SCROLL REVEAL */
@@ -12,6 +13,9 @@
     [data-reveal="fade"]{transform:none;}
     [data-reveal="left"]{transform:translateX(-32px);}
     [data-reveal="right"]{transform:translateX(32px);}
+    /* On phones, slide everything up instead of sideways: an element offset past the
+       right edge makes mobile browsers widen the page (white strip on the right) */
+    @media(max-width:768px){[data-reveal="left"],[data-reveal="right"]{transform:translateY(28px);}}
     [data-reveal].revealed{opacity:1;transform:none;}
     [data-delay="1"]{transition-delay:.1s;}
     [data-delay="2"]{transition-delay:.2s;}
