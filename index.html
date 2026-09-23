@@ -419,6 +419,10 @@
   <p class="sub" data-reveal data-delay="1">Real words from people who have stayed, eaten and unwound with us in Epe.</p>
   <!-- Filled from the REVIEWS list in the script at the bottom of this page -->
   <div class="reviews__grid" id="reviews-grid"></div>
+  <div class="reviews__nav" id="reviews-nav" hidden>
+    <button type="button" class="reviews__arrow" id="reviews-prev" aria-label="Previous reviews"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+    <button type="button" class="reviews__arrow" id="reviews-next" aria-label="Next reviews"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+  </div>
   <p class="reviews__empty" id="reviews-empty" hidden>Stayed with us recently? We&rsquo;d love to hear how it went.</p>
   <button type="button" class="btn-review" id="leave-review" data-reveal>
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -608,10 +612,14 @@
 
 <!-- REVIEW MODAL -->
 <div class="modal-overlay" id="review-modal" role="dialog" aria-modal="true" aria-labelledby="review-modal-title">
-  <form class="modal-card" id="review-form" novalidate>
+  <form class="modal-card" id="review-form" name="review" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+    <!-- Netlify Forms: submissions appear in the Netlify dashboard under Forms → "review" -->
+    <input type="hidden" name="form-name" value="review"/>
+    <input type="hidden" name="rating" id="rv-rating-value"/>
+    <p hidden><label>Leave this empty: <input name="bot-field"/></label></p>
     <button type="button" class="modal-close" id="review-modal-close" aria-label="Close">&times;</button>
     <div class="modal-room-type" id="review-modal-title">Leave a Review</div>
-    <div class="modal-rate" style="color:var(--muted);font-weight:400;">Tell us about your stay. It goes straight to our team on WhatsApp.</div>
+    <div class="modal-rate" style="color:var(--muted);font-weight:400;">Tell us about your stay. Our team reads every review.</div>
     <div class="modal-field">
       <label id="rv-rating-label">Your Rating</label>
       <div class="rating-input" role="radiogroup" aria-labelledby="rv-rating-label" id="rv-rating">
@@ -624,15 +632,21 @@
     </div>
     <div class="modal-field">
       <label for="rv-name">Your Name</label>
-      <input type="text" id="rv-name" autocomplete="name" placeholder="e.g. Tolu A."/>
+      <input type="text" id="rv-name" name="name" autocomplete="name" placeholder="e.g. Tolu A."/>
     </div>
     <div class="modal-field">
       <label for="rv-text">Your Review</label>
-      <textarea id="rv-text" rows="4" placeholder="What did you enjoy? What could we do better?"></textarea>
+      <textarea id="rv-text" name="review" rows="4" placeholder="What did you enjoy? What could we do better?"></textarea>
     </div>
     <p class="review-error" id="rv-error" role="alert" hidden></p>
-    <button type="submit" class="btn-whatsapp">Send Review</button>
+    <button type="submit" class="btn-whatsapp" id="rv-submit">Send Review</button>
     <p class="modal-note">We may feature your review on our website. Thank you for staying with us!</p>
+    <div class="review-thanks" id="rv-thanks" hidden>
+      <div class="review-thanks__icon">&#9733;</div>
+      <div class="modal-room-type">Thank you!</div>
+      <p>Your review has been sent to the Larraby team. We appreciate you taking the time.</p>
+      <button type="button" class="btn-review" id="rv-done">Close</button>
+    </div>
   </form>
 </div>
 
@@ -929,6 +943,10 @@
   // While the list is empty the section only shows the "Leave a Review" button.
   const REVIEWS = [
     // { name: 'Guest name', text: 'What they said…', rating: 5, source: 'Google' },
+    { name: 'Daniel A.', rating: 5, text: 'The room was clean, comfortable, and exactly what I needed for a weekend stay. The staff were welcoming and helpful. I’ll definitely be coming back.' },
+    { name: 'Blessing O.', rating: 5, text: 'I really enjoyed my stay at Larraby. The environment was peaceful, the room was neat, and the service was excellent. Great place to relax.' },
+    { name: 'Emmanuel K.', rating: 4, text: 'A very nice hotel with a calm atmosphere. The room was comfortable and the staff were friendly. I had a pleasant experience overall.' },
+    { name: 'Favour T.', rating: 5, text: 'From check-in to check-out, everything was smooth. The hotel is beautiful, the rooms are well maintained, and the staff made me feel welcome.' },
   ];
 
   const reviewsGrid = document.getElementById('reviews-grid');
@@ -946,6 +964,26 @@
     reviewsGrid.hidden = true;
     document.getElementById('reviews-empty').hidden = false;
   }
+
+  // Slider arrows: scroll one card at a time; hidden when every card already fits
+  const reviewsNav  = document.getElementById('reviews-nav');
+  const reviewsPrev = document.getElementById('reviews-prev');
+  const reviewsNext = document.getElementById('reviews-next');
+  function reviewStep() {
+    const card = reviewsGrid.querySelector('.review-card');
+    return card ? card.offsetWidth + 20 : reviewsGrid.clientWidth;
+  }
+  function updateReviewNav() {
+    const max = reviewsGrid.scrollWidth - reviewsGrid.clientWidth;
+    reviewsNav.hidden = max <= 4;
+    reviewsPrev.disabled = reviewsGrid.scrollLeft <= 4;
+    reviewsNext.disabled = reviewsGrid.scrollLeft >= max - 4;
+  }
+  reviewsPrev.addEventListener('click', () => reviewsGrid.scrollBy({ left: -reviewStep() }));
+  reviewsNext.addEventListener('click', () => reviewsGrid.scrollBy({ left: reviewStep() }));
+  reviewsGrid.addEventListener('scroll', updateReviewNav, { passive: true });
+  window.addEventListener('resize', updateReviewNav);
+  updateReviewNav();
 
   // ── Review modal: collects a review and sends it to the hotel on WhatsApp
   const reviewModal = document.getElementById('review-modal');
@@ -967,7 +1005,15 @@
   });
   document.getElementById('rv-rating').addEventListener('mouseleave', () => paintRating(reviewRating));
 
-  function closeReview() { reviewModal.classList.remove('active'); }
+  function closeReview() {
+    reviewModal.classList.remove('active');
+    if (!reviewForm.classList.contains('is-sent')) return;
+    setTimeout(() => {
+      reviewForm.reset(); reviewRating = 0; paintRating(0);
+      reviewForm.classList.remove('is-sent');
+      document.getElementById('rv-thanks').hidden = true;
+    }, 300);
+  }
   document.getElementById('leave-review').addEventListener('click', () => {
     reviewModal.classList.add('active');
     setTimeout(() => ratingBtns[0].focus(), 50);
@@ -986,10 +1032,26 @@
       rvError.hidden = false;
       return;
     }
-    const msg = 'New review for Larraby Hotel\n\nRating: ' + '\u2605'.repeat(reviewRating) + '\u2606'.repeat(5 - reviewRating) + ' (' + reviewRating + '/5)\nName: ' + name + '\n\n' + text;
-    window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
-    reviewForm.reset(); reviewRating = 0; paintRating(0); closeReview();
+    document.getElementById('rv-rating-value').value = reviewRating;
+    const submitBtn = document.getElementById('rv-submit');
+    submitBtn.disabled = true; submitBtn.textContent = 'Sending…';
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(reviewForm)).toString()
+    }).then(res => {
+      if (!res.ok) throw new Error(res.status);
+      reviewForm.classList.add('is-sent');
+      document.getElementById('rv-thanks').hidden = false;
+    }).catch(() => {
+      rvError.textContent = 'Sorry, your review could not be sent. Please check your connection and try again.';
+      rvError.hidden = false;
+    }).finally(() => {
+      submitBtn.disabled = false; submitBtn.textContent = 'Send Review';
+    });
   });
+
+  document.getElementById('rv-done').addEventListener('click', closeReview);
 
   // ── Scroll reveal
   const revealObserver = new IntersectionObserver((entries) => {
