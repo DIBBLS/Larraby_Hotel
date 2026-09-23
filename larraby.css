@@ -34,7 +34,7 @@
     .btn-book-nav:hover{background:var(--gold);color:#fff;transform:translateY(-2px);box-shadow:0 14px 34px rgba(0,0,0,.12)}
 
     /* HERO */
-    .hero{position:relative;min-height:max(78vh,560px);overflow:hidden;display:flex;flex-direction:column;}
+    .hero{position:relative;min-height:clamp(560px,78vh,800px);overflow:hidden;display:flex;flex-direction:column;}
     .hero__bg{position:absolute;inset:0;background-color:#2e2d2a;background-image:linear-gradient(160deg,rgba(0,0,0,.48),rgba(0,0,0,.2)),url('images/hero-bg.webp');background-position:center;background-size:cover;background-repeat:no-repeat;}
     .hero__overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,.32) 100%);}
     .hero__content{position:relative;z-index:2;padding:110px 64px 18px;}
