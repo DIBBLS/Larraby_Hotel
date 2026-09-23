@@ -608,10 +608,14 @@
 
 <!-- REVIEW MODAL -->
 <div class="modal-overlay" id="review-modal" role="dialog" aria-modal="true" aria-labelledby="review-modal-title">
-  <form class="modal-card" id="review-form" novalidate>
+  <form class="modal-card" id="review-form" name="review" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+    <!-- Netlify Forms: submissions appear in the Netlify dashboard under Forms → "review" -->
+    <input type="hidden" name="form-name" value="review"/>
+    <input type="hidden" name="rating" id="rv-rating-value"/>
+    <p hidden><label>Leave this empty: <input name="bot-field"/></label></p>
     <button type="button" class="modal-close" id="review-modal-close" aria-label="Close">&times;</button>
     <div class="modal-room-type" id="review-modal-title">Leave a Review</div>
-    <div class="modal-rate" style="color:var(--muted);font-weight:400;">Tell us about your stay. It goes straight to our team on WhatsApp.</div>
+    <div class="modal-rate" style="color:var(--muted);font-weight:400;">Tell us about your stay. Our team reads every review.</div>
     <div class="modal-field">
       <label id="rv-rating-label">Your Rating</label>
       <div class="rating-input" role="radiogroup" aria-labelledby="rv-rating-label" id="rv-rating">
@@ -624,15 +628,21 @@
     </div>
     <div class="modal-field">
       <label for="rv-name">Your Name</label>
-      <input type="text" id="rv-name" autocomplete="name" placeholder="e.g. Tolu A."/>
+      <input type="text" id="rv-name" name="name" autocomplete="name" placeholder="e.g. Tolu A."/>
     </div>
     <div class="modal-field">
       <label for="rv-text">Your Review</label>
-      <textarea id="rv-text" rows="4" placeholder="What did you enjoy? What could we do better?"></textarea>
+      <textarea id="rv-text" name="review" rows="4" placeholder="What did you enjoy? What could we do better?"></textarea>
     </div>
     <p class="review-error" id="rv-error" role="alert" hidden></p>
-    <button type="submit" class="btn-whatsapp">Send Review</button>
+    <button type="submit" class="btn-whatsapp" id="rv-submit">Send Review</button>
     <p class="modal-note">We may feature your review on our website. Thank you for staying with us!</p>
+    <div class="review-thanks" id="rv-thanks" hidden>
+      <div class="review-thanks__icon">&#9733;</div>
+      <div class="modal-room-type">Thank you!</div>
+      <p>Your review has been sent to the Larraby team. We appreciate you taking the time.</p>
+      <button type="button" class="btn-review" id="rv-done">Close</button>
+    </div>
   </form>
 </div>
 
@@ -967,7 +977,15 @@
   });
   document.getElementById('rv-rating').addEventListener('mouseleave', () => paintRating(reviewRating));
 
-  function closeReview() { reviewModal.classList.remove('active'); }
+  function closeReview() {
+    reviewModal.classList.remove('active');
+    if (!reviewForm.classList.contains('is-sent')) return;
+    setTimeout(() => {
+      reviewForm.reset(); reviewRating = 0; paintRating(0);
+      reviewForm.classList.remove('is-sent');
+      document.getElementById('rv-thanks').hidden = true;
+    }, 300);
+  }
   document.getElementById('leave-review').addEventListener('click', () => {
     reviewModal.classList.add('active');
     setTimeout(() => ratingBtns[0].focus(), 50);
@@ -986,10 +1004,26 @@
       rvError.hidden = false;
       return;
     }
-    const msg = 'New review for Larraby Hotel\n\nRating: ' + '\u2605'.repeat(reviewRating) + '\u2606'.repeat(5 - reviewRating) + ' (' + reviewRating + '/5)\nName: ' + name + '\n\n' + text;
-    window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
-    reviewForm.reset(); reviewRating = 0; paintRating(0); closeReview();
+    document.getElementById('rv-rating-value').value = reviewRating;
+    const submitBtn = document.getElementById('rv-submit');
+    submitBtn.disabled = true; submitBtn.textContent = 'Sending…';
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(reviewForm)).toString()
+    }).then(res => {
+      if (!res.ok) throw new Error(res.status);
+      reviewForm.classList.add('is-sent');
+      document.getElementById('rv-thanks').hidden = false;
+    }).catch(() => {
+      rvError.textContent = 'Sorry, your review could not be sent. Please check your connection and try again.';
+      rvError.hidden = false;
+    }).finally(() => {
+      submitBtn.disabled = false; submitBtn.textContent = 'Send Review';
+    });
   });
+
+  document.getElementById('rv-done').addEventListener('click', closeReview);
 
   // ── Scroll reveal
   const revealObserver = new IntersectionObserver((entries) => {
