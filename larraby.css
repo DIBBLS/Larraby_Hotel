@@ -34,7 +34,7 @@
     .btn-book-nav:hover{background:var(--gold);color:#fff;transform:translateY(-2px);box-shadow:0 14px 34px rgba(0,0,0,.12)}
 
     /* HERO */
-    .hero{position:relative;min-height:max(78vh,560px);overflow:hidden;}
+    .hero{position:relative;min-height:max(78vh,560px);overflow:hidden;display:flex;flex-direction:column;}
     .hero__bg{position:absolute;inset:0;background-color:#2e2d2a;background-image:linear-gradient(160deg,rgba(0,0,0,.48),rgba(0,0,0,.2)),url('images/hero-bg.webp');background-position:center;background-size:cover;background-repeat:no-repeat;}
     .hero__overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,.32) 100%);}
     .hero__content{position:relative;z-index:2;padding:110px 64px 18px;}
@@ -45,7 +45,7 @@
     @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
 
     /* BOOKING WIDGET */
-    .booking-wrap{position:absolute;bottom:28px;left:0;right:0;z-index:10;padding:0 64px;}
+    .booking-wrap{position:relative;margin-top:auto;z-index:10;padding:8px 64px 28px;}
     .booking-card{background:#fff;border-radius:16px;padding:28px 36px;display:flex;gap:16px;align-items:flex-end;box-shadow:0 8px 40px rgba(0,0,0,.18);}
     .booking-field{display:flex;flex-direction:column;gap:6px;flex:1;min-width:0;}
     .booking-field label{font-size:12px;font-weight:500;color:var(--muted);}
@@ -279,7 +279,7 @@
       .site-header{padding:18px 32px;}
       .site-header.scrolled{padding:12px 32px;}
       .hero__content{padding:120px 32px 28px;}
-      .booking-wrap{padding:0 32px;}
+      .booking-wrap{padding:8px 32px 28px;}
       .booking-card{flex-wrap:wrap;gap:12px;}
       .booking-field{min-width:calc(50% - 8px);flex:none;}
       .btn-check{width:100%;}
@@ -310,7 +310,7 @@
       .hero__content{padding:90px 20px 24px;}
       .hero__title{font-size:clamp(36px,10vw,58px);letter-spacing:-0.5px;}
       .hero__subtitle{font-size:14px;max-width:100%;}
-      .booking-wrap{position:relative;bottom:auto;left:auto;right:auto;padding:0 20px;}
+      .booking-wrap{padding:0 20px;}
       .booking-card{display:none;}
       .availability-trigger{display:inline-block;}
 
