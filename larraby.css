@@ -240,7 +240,9 @@
     .reviews{background:var(--white);border-top:1px solid rgba(0,0,0,.06);padding:92px 64px;text-align:center;}
     .reviews h2{font-family:'Playfair Display',serif;font-size:clamp(32px,4.5vw,54px);font-weight:700;margin-bottom:14px;}
     .reviews .sub{font-size:14.5px;color:var(--body);line-height:1.8;margin-bottom:48px;}
-    .reviews__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:40px;text-align:left;}
+    .reviews__grid{display:grid;grid-template-columns:1fr;gap:20px;margin-bottom:40px;text-align:left;}
+    @media(min-width:640px){.reviews__grid{grid-template-columns:repeat(2,1fr);}}
+    @media(min-width:1200px){.reviews__grid{grid-template-columns:repeat(4,1fr);}}
     .review-card{background:var(--gold-light);border:1px solid rgba(0,0,0,.06);border-radius:22px;padding:28px;margin:0;display:flex;flex-direction:column;gap:14px;}
     .review-card__stars{color:var(--gold);font-size:18px;letter-spacing:2px;}
     .review-card__stars span{color:rgba(0,0,0,.15);}
